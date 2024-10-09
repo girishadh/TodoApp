@@ -1,0 +1,22 @@
+{% extends 'todoList/base.html' %}
+
+{% block content %}
+
+{% for item in todoItems %}
+
+    {% if item.completed %}
+        <h1 class="text-success">{{ item.title }}</h1><br><br><br>
+    {% else %}
+        <h1 class="text-warning">{{ item.title }}</h1>
+    {% endif %}
+    <p>{{ item.description }}</p>   <br><br><br>
+<a href="{% url 'update' item.id %}" class="
+btn btn-info">Update</a>
+    <form action="{% url 'delete' item.id %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+
+{% endfor %}
+
+{% endblock %}

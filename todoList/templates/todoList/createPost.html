@@ -1,0 +1,10 @@
+{% extends 'todoList/base.html' %}
+
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.title }} <br> <br>
+    {{ form.description }} <br> <br>
+    <input type="submit">
+</form>
+{% endblock %}

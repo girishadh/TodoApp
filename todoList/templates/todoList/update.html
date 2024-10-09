@@ -1,0 +1,13 @@
+{% extends 'todoList/base.html' %}
+
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.title }} <br> <br>
+    {{ form.description }} <br> <br>
+    {{ form.completed }}
+    <input type="submit">
+</form>
+
+{% endblock content %}
